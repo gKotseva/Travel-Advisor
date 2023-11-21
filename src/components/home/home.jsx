@@ -1,5 +1,5 @@
 import './home.modules.css'
-
+import { Link } from 'react-router-dom';
 
 export default function Home() {
 
@@ -15,12 +15,12 @@ export default function Home() {
       <div>
       <header>
         <div className="navMenu">
-          <a href="#">Home</a>
-          <a href="#">Destinations</a>
-          <a href="#">My destinations</a>
-          <a href="#">Login</a>
-          <a href="#">Register</a>
-          <a href="#">Logout</a>
+          <Link to="/">Home</Link>
+          <Link to="/destinations">Destinations</Link>
+          <Link to="/my-destinations">My destinations</Link>
+          <Link to="/login">Login</Link>
+          <Link to="/register">Register</Link>
+          <Link to="/logout">Logout</Link>
           <div className="dot"></div>
         </div>
       </header>
