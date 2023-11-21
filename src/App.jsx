@@ -1,10 +1,10 @@
-import Intro from "./components/intro/Intro.jsx"
+import Home from "./components/home/home.jsx"
 
 function App() {
 
   return (
     <>
-    <Intro />
+    <Home />
     </>
   )
 }
