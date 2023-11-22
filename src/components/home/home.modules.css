@@ -9,10 +9,7 @@ body {
     background-color: #EDE9E8;
 }
 
-
-
-
-img {
+.home-image {
     display: block;
     margin-left: auto;
     margin-right: auto;
