@@ -1,14 +1,14 @@
 header {
-    background: rgb(0,0,0);
     background: linear-gradient(180deg, #303030 0%, #EDE9E8 100%);    
     width: 100%;
     height: 200px;
 }
 
 .navMenu {
-  position: absolute;
-  top: 10%;
+  position: relative;
+  top: 50%;
   left: 50%;
+  text-align: center;
   transform: translate(-50%, -50%);
 }
 
@@ -17,8 +17,8 @@ header {
   text-decoration: none;
   font-size: 1.3em;
   text-transform: uppercase;
-  display: inline;
-  margin-right: 60px;
+  display: inline-block;
+  margin-right: 50px;
 }
 
 .navMenu a:hover {
@@ -36,31 +36,36 @@ header {
 }
 
 .navMenu a:nth-child(1):hover ~ .dot {
-  transform: translateX(25px);
+  transform: translateX(435px);
   opacity: 1;
 }
 
 .navMenu a:nth-child(2):hover ~ .dot {
-  transform: translateX(185px);
+  transform: translateX(585px);
   opacity: 1;
 }
 
 .navMenu a:nth-child(3):hover ~ .dot {
-  transform: translateX(405px);
+  transform: translateX(785px);
   opacity: 1;
 }
 
 .navMenu a:nth-child(4):hover ~ .dot {
-  transform: translateX(570px);
+  transform: translateX(1005px);
   opacity: 1;
 }
 
 .navMenu a:nth-child(5):hover ~ .dot {
-  transform: translateX(700px);
+  transform: translateX(1165px);
   opacity: 1;
 }
 
 .navMenu a:nth-child(6):hover ~ .dot {
-  transform: translateX(845px);
+  transform: translateX(1285px);
+  opacity: 1;
+}
+
+.navMenu a:nth-child(7):hover ~ .dot {
+  transform: translateX(1425px);
   opacity: 1;
 }
