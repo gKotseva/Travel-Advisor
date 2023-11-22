@@ -69,3 +69,11 @@ header {
   transform: translateX(1425px);
   opacity: 1;
 }
+
+.line {
+  width: revert; 
+  height: 59px;  
+  border: solid 3px #000;
+  border-color: #fcd303 transparent transparent transparent;
+  border-radius: 90%/100px 100px 0;
+}

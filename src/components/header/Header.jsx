@@ -17,6 +17,7 @@ export default function Header() {
             <div className="dot"></div>
           </div>
         </header>
+        <div className='line' />
       </div>
     </>
   );
