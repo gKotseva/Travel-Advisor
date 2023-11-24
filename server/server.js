@@ -1,6 +1,5 @@
 const {PORT, DB_URL} = require('./constants')
 const mongoose = require('mongoose')
-
 const express = require('express')
 
 const app = express()
