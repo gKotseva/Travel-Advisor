@@ -8,6 +8,7 @@ import Destinations from "./components/destinations/Destinations.jsx"
 import { useState } from "react"
 import { AuthContext } from "./components/contexts/authContext.js"
 import Path from "./paths.js"
+import * as authService from './services/authService.js'
 
 function App() {
   const [auth, setAuth] = useState({})
@@ -16,8 +17,8 @@ function App() {
     console.log(values)
   }
 
-  const registerSubmitHandler = (values) => {
-    console.log(values)
+  const registerSubmitHandler = values => {
+    authService.register(values.email, values.password, values.repeatPassword)
   }
 
   return (
