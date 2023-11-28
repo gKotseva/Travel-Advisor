@@ -16,7 +16,6 @@ export default function Destinations() {
         }
 
         const data = await response.json()
-        console.log(data)
         setDestinations(data);
 
       } catch (error) {
