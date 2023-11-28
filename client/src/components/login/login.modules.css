@@ -68,9 +68,10 @@
     text-transform: uppercase;
     overflow: hidden;
     transition: .5s;
-    margin-top: 40px;
+    margin-top: 10px;
     letter-spacing: 4px;
     border: none;
+    width: 320px;
   }
 
   .login-box .btn:hover {
