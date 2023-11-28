@@ -29,7 +29,7 @@ export default function Login() {
             <input type="password" name="password" onChange={onChange} value={values[LoginFormKeys.Password]} />
             <label>Password</label>
           </div>
-          <input type="submit" value="Login" className='btn'></input>
+          <input type="submit" value="Login" className='login-btn'></input>
         </form>
       </div>
     </>

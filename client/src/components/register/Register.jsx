@@ -35,7 +35,7 @@ export default function Register() {
             <input type="password" name="repeatPassword" onChange={onChange} value={values[RegisterFormKeys.RepeatPassword]}/>
             <label>Repeat Password</label>
           </div>
-          <input type="submit" value="Register" className='btn'></input>
+          <input type="submit" value="Register" className='register-btn'></input>
         </form>
       </div>
     </>
