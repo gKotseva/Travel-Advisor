@@ -7,6 +7,7 @@ import Intro from "./components/intro/Intro.jsx"
 import Destinations from "./components/destinations/Destinations.jsx"
 import { useState } from "react"
 import { AuthContext } from "./components/contexts/authContext.js"
+import Path from "./paths.js"
 
 function App() {
   const [auth, setAuth] = useState({})
@@ -25,10 +26,10 @@ function App() {
       {/* <Intro /> */}
       <Header />
         <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/login" element={<Login />}></Route>
-          <Route path="/register" element={<Register />}></Route>
-          <Route path="/destinations" element={<Destinations />}></Route>
+          <Route path={Path.Home} element={<Home />}></Route>
+          <Route path={Path.Login} element={<Login />}></Route>
+          <Route path={Path.Register} element={<Register />}></Route>
+          <Route path={Path.Destinations} element={<Destinations />}></Route>
         </Routes>
     </AuthContext.Provider>
 
