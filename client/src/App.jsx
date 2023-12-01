@@ -14,7 +14,7 @@ function App() {
   const [auth, setAuth] = useState({})
 
   const loginSubmitHandler = (values) => {
-    console.log(values)
+    authService.login(values.email, values.password, values.repeatPassword)
   }
 
   const registerSubmitHandler = values => {

@@ -21,4 +21,21 @@ router.post('/register', async (req, res) => {
 
 })
 
+router.post('/login', async (req, res) => {
+  const {email, password} = req.body
+
+  try {
+      const token = await userService.login(email, password)
+      res.cookie("token", token)
+      res.status(200).send({message: 'Login successful!'})
+  } catch(error) {
+    const message = error.message
+    res.status(409).send({message})
+  }
+})
+
+// router.get('/logout', (req, res) => {
+//   res.clearCookie('token')
+// })
+
 module.exports = router
