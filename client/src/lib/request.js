@@ -23,6 +23,8 @@ const request = async(method, url, data) => {
 
     const result = await response.json()
 
+    console.log(result)
+
     return result
 }
 

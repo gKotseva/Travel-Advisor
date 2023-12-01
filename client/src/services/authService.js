@@ -8,7 +8,5 @@ export const register = async (email, password, repeatPassword) => {
         repeatPassword
     })
 
-    console.log(result) 
-
     return result;
 }
