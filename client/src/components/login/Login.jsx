@@ -22,11 +22,11 @@ export default function Login() {
         <h2>Login</h2>
         <form onSubmit={onSubmit}>
           <div className="user-box">
-            <input type="email" name="email" onChange={onChange} value={values[LoginFormKeys.Email]} />
+            <input type="email" name="email" autoComplete="username" onChange={onChange} value={values[LoginFormKeys.Email]} />
             <label>Email</label>
           </div>
           <div className="user-box">
-            <input type="password" name="password" onChange={onChange} value={values[LoginFormKeys.Password]} />
+            <input type="password" name="password" autoComplete="current-password" onChange={onChange} value={values[LoginFormKeys.Password]} />
             <label>Password</label>
           </div>
           <input type="submit" value="Login" className='login-btn'></input>
