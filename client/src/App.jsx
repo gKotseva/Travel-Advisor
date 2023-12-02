@@ -1,5 +1,5 @@
 import Home from "./components/home/home.jsx"
-import {Routes, Route} from 'react-router-dom'
+import {Routes, Route, Navigate, useNavigate} from 'react-router-dom'
 import Login from "./components/login/Login.jsx"
 import Header from "./components/header/Header.jsx"
 import Register from "./components/register/Register.jsx"
@@ -11,25 +11,39 @@ import Path from "./paths.js"
 import * as authService from './services/authService.js'
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(Boolean)
+  const navigate = useNavigate()
+  const [auth, setAuth] = useState({})
 
   const loginSubmitHandler = async (values) => {
     let response = await authService.login(values.email, values.password, values.repeatPassword)
+    console.log(response)
+    setAuth(response)
+    navigate(Path.Home)
   }
 
   const registerSubmitHandler = async (values) => {
     let response = await authService.register(values.email, values.password, values.repeatPassword)
     if(response.success){
       await authService.login(values.email, values.password)
-      setIsAuthenticated(response.isAuthenticated)
+      setAuth(response)
+      navigate(Path.Home)
     }
   }
 
+  const values = {
+    loginSubmitHandler,
+    registerSubmitHandler,
+    email: auth.email,
+    isAuthenticated: !!auth.email
+  }
+
+  console.log(values)
+
   return (
     <>
-    <AuthContext.Provider value={{loginSubmitHandler, registerSubmitHandler}}>
+    <AuthContext.Provider value={values}>
       {/* <Intro /> */}
-      <Header isAuthenticated={isAuthenticated}/>
+      <Header/>
         <Routes>
           <Route path={Path.Home} element={<Home />}></Route>
           <Route path={Path.Login} element={<Login />}></Route>
