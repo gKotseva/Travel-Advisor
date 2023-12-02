@@ -10,6 +10,7 @@ import { AuthContext } from "./components/contexts/authContext.js"
 import Path from "./paths.js"
 import * as authService from './services/authService.js'
 import Logout from "./components/logout/Logout.jsx"
+import Destination from "./components/destination/Destination.jsx"
 
 function App() {
   const navigate = useNavigate()
@@ -32,6 +33,7 @@ function App() {
 
   const logoutHandler = () => {
     setAuth({})
+    navigate(Path.Home)
   }
 
   const values = {
@@ -54,6 +56,7 @@ function App() {
           <Route path={Path.Register} element={<Register />}></Route>
           <Route path={Path.Destinations} element={<Destinations />}></Route>
           <Route path={Path.Logout} element={<Logout />}></Route>
+          <Route path={Path.DestinationId} element={<Destination />}></Route>
         </Routes>
     </AuthContext.Provider>
 

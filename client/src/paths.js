@@ -2,8 +2,9 @@ const Path = {
     Home: '/',
     Login: '/login',
     Register: '/register',
-    Destinations: '/destinations',
-    Logout: '/logout'
+    Destinations: '/all',
+    Logout: '/logout',
+    DestinationId: '/:id'
 }
 
 export default Path

@@ -15,7 +15,7 @@ export default function Header() {
         <header>
           <div className="navMenu">
             <Link to="/">Home</Link>
-            <Link to="/destinations">Destinations</Link>
+            <Link to="/all">Destinations</Link>
             {isAuthenticated && (
             <>
               <Link to="/my-destinations">My destinations</Link>

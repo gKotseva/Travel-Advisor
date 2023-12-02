@@ -1,6 +1,7 @@
 import "./destinations.modules.css";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import * as destinationService from '../../services/destinationService'
 
 export default function Destinations() {
 
@@ -9,14 +10,8 @@ export default function Destinations() {
   useEffect(() => {
     const fetchDestinations = async () => {
       try {
-        const response = await fetch('/api/destinations');
-
-        if(!response.ok){
-          throw new Error(`Internal server error!`)
-        }
-
-        const data = await response.json()
-        setDestinations(data);
+        const response = await destinationService.getAll();
+        setDestinations(response);
 
       } catch (error) {
         console.error('Error fetching destinations:', error);
@@ -33,7 +28,7 @@ export default function Destinations() {
                 <div className="article-card" key={destination.country}>
                 <div className="content">
                   <p className="title">{destination.country}</p>
-                  <Link to="/">View places<i className="arrow right"></i></Link>
+                  <Link to={`/${destination._id}`}>View places<i className="arrow right"></i></Link>
                 </div>
                 <img
                   src={destination.imageUrl}
