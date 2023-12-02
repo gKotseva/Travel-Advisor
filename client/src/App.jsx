@@ -11,7 +11,7 @@ import Path from "./paths.js"
 import * as authService from './services/authService.js'
 
 function App() {
-  const [auth, setAuth] = useState({})
+  const [isAuthenticated, setIsAuthenticated] = useState(Boolean)
 
   const loginSubmitHandler = async (values) => {
     let response = await authService.login(values.email, values.password, values.repeatPassword)
@@ -21,6 +21,7 @@ function App() {
     let response = await authService.register(values.email, values.password, values.repeatPassword)
     if(response.success){
       await authService.login(values.email, values.password)
+      setIsAuthenticated(response.isAuthenticated)
     }
   }
 
@@ -28,7 +29,7 @@ function App() {
     <>
     <AuthContext.Provider value={{loginSubmitHandler, registerSubmitHandler}}>
       {/* <Intro /> */}
-      <Header value={{}}/>
+      <Header isAuthenticated={isAuthenticated}/>
         <Routes>
           <Route path={Path.Home} element={<Home />}></Route>
           <Route path={Path.Login} element={<Login />}></Route>

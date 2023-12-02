@@ -11,12 +11,12 @@ router.post('/register', async (req, res) => {
     if(!userExists){
         try {
             await userService.register({ email, password, repeatPassword });
-            res.status(200).json({ success: true, message: 'Registration successful!' });
+            res.status(200).json({ success: true, isAuthenticated: true, message: 'Registration successful!' });
           } catch (error) {
-            res.status(500).json({ success: false, error: 'Internal Server Error - Registration failed' });
+            res.status(500).json({ success: false, isAuthenticated: false, error: 'Internal Server Error - Registration failed' });
           }
     } else {
-        res.status(409).json({ success: false, error: 'User already exists!' });
+        res.status(409).json({ success: false, isAuthenticated: false, error: 'User already exists!' });
     }
 
 })
