@@ -10,8 +10,12 @@ router.post('/register', async (req, res) => {
 
     if(!userExists){
         try {
+          if(password === repeatPassword){
             await userService.register({ email, password, repeatPassword });
             res.status(200).json({ success: true, email, message: 'Registration successful!' });
+          } else {
+            res.status(500).json({ success: false, error: 'Passwords should match!' });
+          }
           } catch (error) {
             res.status(500).json({ success: false, error: 'Internal Server Error - Registration failed' });
           }
