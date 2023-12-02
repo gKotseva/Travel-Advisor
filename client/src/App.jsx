@@ -13,19 +13,22 @@ import * as authService from './services/authService.js'
 function App() {
   const [auth, setAuth] = useState({})
 
-  const loginSubmitHandler = (values) => {
-    authService.login(values.email, values.password, values.repeatPassword)
+  const loginSubmitHandler = async (values) => {
+    let response = await authService.login(values.email, values.password, values.repeatPassword)
   }
 
-  const registerSubmitHandler = values => {
-    authService.register(values.email, values.password, values.repeatPassword)
+  const registerSubmitHandler = async (values) => {
+    let response = await authService.register(values.email, values.password, values.repeatPassword)
+    if(response.success){
+      await authService.login(values.email, values.password)
+    }
   }
 
   return (
     <>
     <AuthContext.Provider value={{loginSubmitHandler, registerSubmitHandler}}>
       {/* <Intro /> */}
-      <Header />
+      <Header value={{}}/>
         <Routes>
           <Route path={Path.Home} element={<Home />}></Route>
           <Route path={Path.Login} element={<Login />}></Route>

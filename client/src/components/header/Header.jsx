@@ -1,8 +1,11 @@
 import { logout } from '../../services/authService';
 import './header.modules.css'
 import {Link} from 'react-router-dom'
+import { useContext } from 'react';
+import { AuthContext } from '../contexts/authContext';
 
 export default function Header() {
+
   return (
     <>
       <div>

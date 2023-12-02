@@ -11,12 +11,12 @@ router.post('/register', async (req, res) => {
     if(!userExists){
         try {
             await userService.register({ email, password, repeatPassword });
-            res.status(200).json({ message: 'Registration successful!' });
+            res.status(200).json({ success: true, message: 'Registration successful!' });
           } catch (error) {
-            res.status(500).json({ error: 'Internal Server Error - Registration failed' });
+            res.status(500).json({ success: false, error: 'Internal Server Error - Registration failed' });
           }
     } else {
-        res.status(409).json({ error: 'User already exists!' });
+        res.status(409).json({ success: false, error: 'User already exists!' });
     }
 
 })
@@ -27,7 +27,7 @@ router.post('/login', async (req, res) => {
   try {
       const token = await userService.login(email, password)
       res.cookie("token", token)
-      res.status(200).send({message: 'Login successful!'})
+      res.status(200).send({message: 'Login successful!', isAuthenticated: true})
   } catch(error) {
     const message = error.message
     res.status(409).send({message})
