@@ -31,6 +31,7 @@ function App() {
           <Route path={Path.Login} element={<Login />}></Route>
           <Route path={Path.Register} element={<Register />}></Route>
           <Route path={Path.Destinations} element={<Destinations />}></Route>
+          <Route path={Path.Logout} element={null}></Route>
         </Routes>
     </AuthContext.Provider>
 

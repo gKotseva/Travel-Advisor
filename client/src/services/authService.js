@@ -19,3 +19,9 @@ export const login = async (email, password) => {
 
     return result;
 }
+
+export const logout = async () => {
+    const result = await request.get('/api/users/logout')
+
+    return result;
+}

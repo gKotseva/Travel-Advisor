@@ -1,3 +1,4 @@
+import { logout } from '../../services/authService';
 import './header.modules.css'
 import {Link} from 'react-router-dom'
 
@@ -13,7 +14,7 @@ export default function Header() {
             <Link to="/my-destinations">Add destination</Link>
             <Link to="/login">Login</Link>
             <Link to="/register">Register</Link>
-            <Link to="/logout">Logout</Link>
+            <Link to="/logout" onClick={logout}>Logout</Link>
             <div className="dot"></div>
           </div>
         </header>
