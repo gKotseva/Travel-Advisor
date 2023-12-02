@@ -9,6 +9,7 @@ import { useState } from "react"
 import { AuthContext } from "./components/contexts/authContext.js"
 import Path from "./paths.js"
 import * as authService from './services/authService.js'
+import Logout from "./components/logout/Logout.jsx"
 
 function App() {
   const navigate = useNavigate()
@@ -16,7 +17,6 @@ function App() {
 
   const loginSubmitHandler = async (values) => {
     let response = await authService.login(values.email, values.password, values.repeatPassword)
-    console.log(response)
     setAuth(response)
     navigate(Path.Home)
   }
@@ -30,14 +30,18 @@ function App() {
     }
   }
 
+  const logoutHandler = () => {
+    setAuth({})
+  }
+
   const values = {
     loginSubmitHandler,
     registerSubmitHandler,
+    logoutHandler,
     email: auth.email,
     isAuthenticated: !!auth.email
   }
 
-  console.log(values)
 
   return (
     <>
@@ -49,7 +53,7 @@ function App() {
           <Route path={Path.Login} element={<Login />}></Route>
           <Route path={Path.Register} element={<Register />}></Route>
           <Route path={Path.Destinations} element={<Destinations />}></Route>
-          <Route path={Path.Logout} element={null}></Route>
+          <Route path={Path.Logout} element={<Logout />}></Route>
         </Routes>
     </AuthContext.Provider>
 
