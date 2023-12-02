@@ -6,3 +6,9 @@ export const getAll = async () => {
 
     return result;
 }
+
+export const getOne = async (path) => {
+    const result = await request.get(`/api/destinations/${path}`)
+
+    return result
+}

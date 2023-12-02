@@ -28,7 +28,7 @@ export default function Destinations() {
                 <div className="article-card" key={destination.country}>
                 <div className="content">
                   <p className="title">{destination.country}</p>
-                  <Link to={`/${destination._id}`}>View places<i className="arrow right"></i></Link>
+                  <Link to={{ pathname: `/${destination._id}`}}>View places<i className="arrow right"></i></Link>
                 </div>
                 <img
                   src={destination.imageUrl}
