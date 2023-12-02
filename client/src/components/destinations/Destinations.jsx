@@ -30,7 +30,7 @@ export default function Destinations() {
     <>
       <div className="center">
         {destinations.map((destination) => 
-                <div className="article-card">
+                <div className="article-card" key={destination.country}>
                 <div className="content">
                   <p className="title">{destination.country}</p>
                   <Link to="/">View places<i className="arrow right"></i></Link>
