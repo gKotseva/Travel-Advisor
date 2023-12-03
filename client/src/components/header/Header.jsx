@@ -18,8 +18,7 @@ export default function Header() {
             <Link to="/all">Destinations</Link>
             {isAuthenticated && (
             <>
-              <Link to="/my-destinations">My destinations</Link>
-              <Link to="/my-destinations">Add destination</Link>
+              <Link to="/my-profile">My Profile</Link>
               <Link to="/logout" onClick={logout}>Logout</Link>
             </>
             )}
