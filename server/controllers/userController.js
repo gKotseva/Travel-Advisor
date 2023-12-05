@@ -31,7 +31,7 @@ router.post('/login', async (req, res) => {
   try {
       const token = await userService.login(email, password)
       res.cookie("token", token)
-      res.status(200).send({message: 'Login successful!', email})
+      res.status(200).send({message: 'Login successful!', token})
   } catch(error) {
     const message = error.message
     res.status(409).send({message})

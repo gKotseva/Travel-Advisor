@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+
 import * as destinationService from "../../services/destinationService";
 import DestinationModal from "../destinationModal/DestinationModal";
 

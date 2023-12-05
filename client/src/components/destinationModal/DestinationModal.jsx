@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+
 import './destinationModal.modules.css';
 
 export default function DestinationModal({ isOpen, onClose, destinationName, places }) {
