@@ -34,6 +34,7 @@ function App() {
 
   const registerSubmitHandler = async (values) => {
     let response = await authService.register(values.email, values.password, values.repeatPassword)
+    console.log(response)
     if(response.success){
       let loginResponse = await authService.login(values.email, values.password)
       setAuth(loginResponse)

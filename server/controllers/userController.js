@@ -17,7 +17,7 @@ router.post('/register', async (req, res) => {
             res.status(500).json({ success: false, error: 'Passwords should match!' });
           }
           } catch (error) {
-            res.status(500).json({ success: false, error: 'Internal Server Error - Registration failed' });
+            res.status(500).json({ success: false, error: error.message });
           }
     } else {
         res.status(409).json({ success: false, error: 'User already exists!' });
