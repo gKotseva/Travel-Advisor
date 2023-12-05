@@ -19,55 +19,11 @@ header {
   text-transform: uppercase;
   display: inline-block;
   margin-right: 50px;
+  position: relative;
 }
 
 .navMenu a:hover {
   color: #fddb3a;
-}
-
-.navMenu .dot {
-  width: 6px;
-  height: 6px;
-  background: #fddb3a;
-  border-radius: 50%;
-  opacity: 0;
-  -webkit-transform: translateX(30px);
-  transform: translateX(30px);
-}
-
-.navMenu a:nth-child(1):hover ~ .dot {
-  transform: translateX(435px);
-  opacity: 1;
-}
-
-.navMenu a:nth-child(2):hover ~ .dot {
-  transform: translateX(585px);
-  opacity: 1;
-}
-
-.navMenu a:nth-child(3):hover ~ .dot {
-  transform: translateX(785px);
-  opacity: 1;
-}
-
-.navMenu a:nth-child(4):hover ~ .dot {
-  transform: translateX(1005px);
-  opacity: 1;
-}
-
-.navMenu a:nth-child(5):hover ~ .dot {
-  transform: translateX(1165px);
-  opacity: 1;
-}
-
-.navMenu a:nth-child(6):hover ~ .dot {
-  transform: translateX(1285px);
-  opacity: 1;
-}
-
-.navMenu a:nth-child(7):hover ~ .dot {
-  transform: translateX(1425px);
-  opacity: 1;
 }
 
 .line {

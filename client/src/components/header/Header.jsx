@@ -31,7 +31,6 @@ export default function Header() {
                <Link to="/register">Register</Link>
             </>
             )}
-            <div className="dot"></div>
           </div>
         </header>
         <div className='line' />
