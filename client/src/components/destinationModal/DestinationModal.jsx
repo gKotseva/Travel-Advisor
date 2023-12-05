@@ -20,11 +20,12 @@ export default function DestinationModal({ isOpen, onClose, destinationName, pla
     <div className="modal-overlay">
       <div className="modal-content">
         <span className="close-button" onClick={onClose}>
-          [Close]
+          CLOSE
         </span>
         <p className='paragraphName'>{currentPlace.name}</p>
+        <div className='line' />
         <img src={currentPlace.image} alt="article-cover" className='imagePlace'/>
-        <p className='paragraphDescription'>Description: {currentPlace.description}</p>
+        <p className='paragraphDescription'>{currentPlace.description}</p>
       </div>
     </div>
   );
