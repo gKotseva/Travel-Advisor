@@ -34,7 +34,7 @@ router.post('/login', async (req, res) => {
       res.status(200).send({message: 'Login successful!', token})
   } catch(error) {
     const message = error.message
-    res.status(409).send({message})
+    res.status(409).send({error: message})
   }
 })
 

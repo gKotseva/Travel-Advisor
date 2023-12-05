@@ -3,6 +3,9 @@ import {Routes, Route, useNavigate} from 'react-router-dom'
 import { useState } from "react"
 import Cookies from 'js-cookie'
 
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import Intro from "./components/intro/Intro.jsx"
 import Header from "./components/header/Header.jsx"
 import Login from "./components/login/Login.jsx"
@@ -11,6 +14,8 @@ import Destinations from "./components/destinations/Destinations.jsx"
 import { AuthContext } from "./components/contexts/authContext.js"
 import Destination from "./components/destination/Destination.jsx"
 import Logout from "./components/logout/Logout.jsx"
+
+
 
 import Path from "./paths.js"
 import * as authService from './services/authService.js'
@@ -26,15 +31,30 @@ function App() {
   })
 
   const loginSubmitHandler = async (values) => {
+    const isSuccess = true
     let response = await authService.login(values.email, values.password, values.repeatPassword)
 
-    setAuth(response)
-    navigate(Path.Home)
+    if(isSuccess && response.message) {
+      toast.success(response.message)
+      setAuth(response)
+      navigate(Path.Home)
+    } else {
+      toast.error(response.error)
+    }
   }
 
   const registerSubmitHandler = async (values) => {
+    const isSuccess = true
     let response = await authService.register(values.email, values.password, values.repeatPassword)
-    console.log(response)
+
+    if(isSuccess && response.message) {
+      toast.success(response.message)
+      setAuth(response)
+      navigate(Path.Home)
+    } else {
+      toast.error(response.error)
+    }
+
     if(response.success){
       let loginResponse = await authService.login(values.email, values.password)
       setAuth(loginResponse)
@@ -43,6 +63,12 @@ function App() {
   }
 
   const logoutHandler = () => {
+    const isSuccess = true
+
+    if(isSuccess) {
+      toast.success('Logout successful!')
+    }
+
     setAuth({})
     navigate(Path.Home)
   }
@@ -56,6 +82,7 @@ function App() {
 
   return (
     <>
+    <ToastContainer />
     <AuthContext.Provider value={values}>
       {/* <Intro /> */}
       <Header/>
