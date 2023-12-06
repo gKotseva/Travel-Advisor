@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
-import {Link} from 'react-router-dom'
+import * as bucketService from '../../services/bucketService'
+
 
 import './destinationModal.modules.css';
 
 export default function DestinationModal({ isOpen, onClose, destinationName, places }) {
   const [currentPlace, setCurrentPlace] = useState(null);
+
 
   useEffect(() => {
     if (Array.isArray(places) && places.find) {
@@ -17,8 +19,10 @@ export default function DestinationModal({ isOpen, onClose, destinationName, pla
 
   if (!isOpen || !currentPlace) return null;
 
-  function handleBucketList(){ 
-    console.log('working')
+  async function handleBucketList(){ 
+    let user = JSON.parse(localStorage.getItem('user'))
+    let response = await bucketService.addToBucket({currentPlace, user});
+    console.log(response)
   }
 
   return (
