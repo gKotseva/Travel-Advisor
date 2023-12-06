@@ -4,6 +4,8 @@ import './register.modules.css'
 import { AuthContext } from '../contexts/authContext';
 
 const RegisterFormKeys = {
+  FirstName: 'firstName',
+  LastName: 'lastName',
   Email: 'email',
   Password: 'password',
   RepeatPassword: 'repeatPassword'
@@ -14,6 +16,8 @@ export default function Register() {
   const {registerSubmitHandler} = useContext(AuthContext)
 
   const {values, onChange, onSubmit} = useForm(registerSubmitHandler, {
+    [RegisterFormKeys.FirstName]: '',
+    [RegisterFormKeys.LastName]: '',
     [RegisterFormKeys.Email]: '',
     [RegisterFormKeys.Password]: '',
     [RegisterFormKeys.RepeatPassword]: '',
@@ -23,6 +27,14 @@ export default function Register() {
       <div className="register-box">
         <h2>Register</h2>
         <form onSubmit={onSubmit}>
+        <div className="user-box">
+            <input type="text" name="firstName" autoComplete="username" onChange={onChange} value={values[RegisterFormKeys.FirstName]}/>
+            <label>First Name</label>
+          </div>
+          <div className="user-box">
+            <input type="text" name="lastName" autoComplete="username" onChange={onChange} value={values[RegisterFormKeys.LastName]}/>
+            <label>Last Name</label>
+          </div>
           <div className="user-box">
             <input type="text" name="email" autoComplete="username" onChange={onChange} value={values[RegisterFormKeys.Email]}/>
             <label>Email</label>

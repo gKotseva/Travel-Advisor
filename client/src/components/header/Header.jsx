@@ -21,7 +21,7 @@ export default function Header() {
             <Link to="/all">Destinations</Link>
             {isAuthenticated && (
             <>
-              <Link to="/my-profile">My Profile</Link>
+              <Link to="/myProfile">My Profile</Link>
               <Link to="/logout" onClick={logout}>Logout</Link>
             </>
             )}

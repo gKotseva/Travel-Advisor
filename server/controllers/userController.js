@@ -4,15 +4,15 @@ const userService = require('../services/userService')
 const router = require('express').Router()
 
 router.post('/register', async (req, res) => {
-    const {email, password, repeatPassword} = req.body
+    const {firstName, lastName, email, password, repeatPassword} = req.body
 
     const userExists = await User.findOne({email})
 
     if(!userExists){
         try {
           if(password === repeatPassword){
-            await userService.register({ email, password, repeatPassword });
-            res.status(200).json({ success: true, email, message: 'Registration successful!' });
+            await userService.register({ firstName, lastName, email, password, repeatPassword });
+            res.status(200).json({ success: true, firstName, lastName, email, message: 'Registration successful!' });
           } else {
             res.status(500).json({ success: false, error: 'Passwords should match!' });
           }
@@ -29,9 +29,12 @@ router.post('/login', async (req, res) => {
   const {email, password} = req.body
 
   try {
-      const token = await userService.login(email, password)
+      const result = await userService.login(email, password)
+      const token = result.token
+      const firstName = result.user.firstName
+      const lastName = result.user.lastName
       res.cookie("token", token)
-      res.status(200).send({message: 'Login successful!', token})
+      res.status(200).send({message: 'Login successful!', token, firstName, lastName})
   } catch(error) {
     const message = error.message
     res.status(409).send({error: message})

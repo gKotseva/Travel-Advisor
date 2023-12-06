@@ -14,7 +14,7 @@ import Destinations from "./components/destinations/Destinations.jsx"
 import { AuthContext } from "./components/contexts/authContext.js"
 import Destination from "./components/destination/Destination.jsx"
 import Logout from "./components/logout/Logout.jsx"
-
+import Profile from "./components/profile/Profile.jsx";
 
 
 import Path from "./paths.js"
@@ -32,9 +32,15 @@ function App() {
 
   const loginSubmitHandler = async (values) => {
     const isSuccess = true
-    let response = await authService.login(values.email, values.password, values.repeatPassword)
-
-    if(isSuccess && response.message) {
+    let response = await authService.login(values.email, values.password)
+  
+    console.log(response)
+  
+    if (response.firstName && response.lastName) {
+      localStorage.setItem('user', `${response.firstName} ${response.lastName}`)
+    }
+  
+    if (isSuccess && response.message) {
       toast.success(response.message)
       setAuth(response)
       navigate(Path.Home)
@@ -42,21 +48,31 @@ function App() {
       toast.error(response.error)
     }
   }
-
+  
   const registerSubmitHandler = async (values) => {
     const isSuccess = true
-    let response = await authService.register(values.email, values.password, values.repeatPassword)
-
-    if(isSuccess && response.message) {
+    let response = await authService.register(values.firstName, values.lastName, values.email, values.password, values.repeatPassword)
+  
+    if (isSuccess && response.message) {
       toast.success(response.message)
+  
+      if (response.firstName && response.lastName) {
+        localStorage.setItem('user', `${response.firstName} ${response.lastName}`)
+      }
+  
       setAuth(response)
       navigate(Path.Home)
     } else {
       toast.error(response.error)
     }
-
-    if(response.success){
+  
+    if (response.success) {
       let loginResponse = await authService.login(values.email, values.password)
+  
+      if (loginResponse.firstName && loginResponse.lastName) {
+        localStorage.setItem('user', `${loginResponse.firstName} ${loginResponse.lastName}`)
+      }
+  
       setAuth(loginResponse)
       navigate(Path.Home)
     }
@@ -64,6 +80,7 @@ function App() {
 
   const logoutHandler = () => {
     const isSuccess = true
+    localStorage.removeItem('user')
 
     if(isSuccess) {
       toast.success('Logout successful!')
@@ -93,6 +110,7 @@ function App() {
           <Route path={Path.Destinations} element={<Destinations />}></Route>
           <Route path={Path.Logout} element={<Logout />}></Route>
           <Route path={Path.DestinationId} element={<Destination />}></Route>
+          <Route path={Path.MyProfile} element={<Profile />}></Route>
         </Routes>
     </AuthContext.Provider>
 

@@ -1,8 +1,10 @@
 import * as request from '../lib/request'
 
 
-export const register = async (email, password, repeatPassword) => {
+export const register = async (firstName, lastName, email, password, repeatPassword) => {
     const result = await request.post('/api/users/register', {
+        firstName,
+        lastName,
         email, 
         password,
         repeatPassword
@@ -16,6 +18,8 @@ export const login = async (email, password) => {
         email, 
         password,
     })
+
+    console.log(result)
 
     return result;
 }

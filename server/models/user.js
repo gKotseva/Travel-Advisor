@@ -8,10 +8,18 @@ const usersSchema = new mongoose.Schema({
         unique: true,
         minLength: [10, 'Email should be at least 10 characters long!'],
     },
+    firstName: {
+        type: String,
+        required: true,
+    },
+    lastName: {
+        type: String,
+        required: true,
+    },
     password: {
         type: String,
         required: true,
-        minLength: [4, 'Password should be at least 4 characters long!'],
+        // minLength: [4, 'Password should be at least 4 characters long!'],
     },
 });
 
@@ -20,7 +28,6 @@ usersSchema.pre('save', async function () {
     this.password = hash;
 });
 
-// Customize the error messages
 usersSchema.post('validate', function (error, doc, next) {
     if (error.errors) {
         const validationErrors = Object.values(error.errors).map((err) => err.message);
