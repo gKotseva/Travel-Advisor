@@ -1,5 +1,4 @@
 const bucketUser = require('../models/bucketUsers')
-
 const router = require('express').Router()
 
 router.post('/add', async (req, res) => {
@@ -14,7 +13,7 @@ router.post('/add', async (req, res) => {
         try {
             await bucketUser.findOneAndUpdate(
                 {user: userEmail},
-                { $push: { place: currentPlace } },
+                { $push: { bucketList: currentPlace } },
             )
             res.status(200).json({message: `Successfully added <${currentPlace.name}> to your bucket list!`})
         } catch (error){
@@ -22,7 +21,7 @@ router.post('/add', async (req, res) => {
         }
     } else {
         try {
-            await bucketUser.create({user: userEmail, place: currentPlace})
+            await bucketUser.create({user: userEmail, bucketList: currentPlace})
             res.status(200).json({message: `Successfully added <${currentPlace.name}> to your bucket list!`})
         } catch (error){
             res.status(500).json({message: error})
@@ -31,10 +30,13 @@ router.post('/add', async (req, res) => {
 
 })
 
-router.get('/all', async (req, res) => {
+router.post('/all', async (req, res) => {
+    const {email} = req.body
     try {
-        let response = await bucketUser.find()
+        let response = await bucketUser.findOne({user: email})
+        res.json(response);
     } catch (error) {
+        res.status(500).json({message: error})
     }
 })
 

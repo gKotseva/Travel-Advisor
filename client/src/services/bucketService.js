@@ -1,7 +1,7 @@
 import * as request from '../lib/request'
 
-export const getAllItems = async () => {
-    const result = await request.get('/api/bucket/all')
+export const getAllItemsPerUser = async (email) => {
+    const result = await request.post('/api/bucket/all', {email})
 
     return result;
 }

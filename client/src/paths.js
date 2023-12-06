@@ -4,7 +4,7 @@ const Path = {
     Register: '/register',
     Destinations: '/all',
     Logout: '/logout',
-    MyProfile: '/myProfile',
+    BucketList: '/BucketList',
     DestinationId: '/:id'
 }
 

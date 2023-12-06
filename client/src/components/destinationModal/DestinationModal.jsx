@@ -3,8 +3,11 @@ import * as bucketService from '../../services/bucketService'
 
 
 import './destinationModal.modules.css';
+import { useNavigate } from "react-router-dom";
+
 
 export default function DestinationModal({ isOpen, onClose, destinationName, places }) {
+  const navigate = useNavigate()
   const [currentPlace, setCurrentPlace] = useState(null);
 
 
@@ -19,10 +22,20 @@ export default function DestinationModal({ isOpen, onClose, destinationName, pla
 
   if (!isOpen || !currentPlace) return null;
 
+  async function checkBucketList(){
+    let user = JSON.parse(localStorage.getItem('user'))
+    let email = user.email
+
+    let response = await bucketService.getAllItemsPerUser(email)
+
+    console.log(response)
+  }
+  checkBucketList()
+
   async function handleBucketList(){ 
     let user = JSON.parse(localStorage.getItem('user'))
-    let response = await bucketService.addToBucket({currentPlace, user});
-    console.log(response)
+    await bucketService.addToBucket({currentPlace, user});
+    navigate(-1)
   }
 
   return (
