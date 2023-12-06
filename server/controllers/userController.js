@@ -34,7 +34,7 @@ router.post('/login', async (req, res) => {
       const firstName = result.user.firstName
       const lastName = result.user.lastName
       res.cookie("token", token)
-      res.status(200).send({message: 'Login successful!', token, firstName, lastName})
+      res.status(200).send({message: 'Login successful!', token, firstName, lastName, email})
   } catch(error) {
     const message = error.message
     res.status(409).send({error: message})

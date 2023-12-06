@@ -19,8 +19,6 @@ export const login = async (email, password) => {
         password,
     })
 
-    console.log(result)
-
     return result;
 }
 

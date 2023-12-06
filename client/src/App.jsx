@@ -33,11 +33,17 @@ function App() {
   const loginSubmitHandler = async (values) => {
     const isSuccess = true
     let response = await authService.login(values.email, values.password)
-  
-    console.log(response)
+
+    let {email, firstName, lastName} = response
+
+    let userInfo = {
+      email,
+      firstName,
+      lastName
+    }
   
     if (response.firstName && response.lastName) {
-      localStorage.setItem('user', `${response.firstName} ${response.lastName}`)
+      localStorage.setItem('user', `${JSON.stringify(userInfo)}`)
     }
   
     if (isSuccess && response.message) {
@@ -53,11 +59,19 @@ function App() {
     const isSuccess = true
     let response = await authService.register(values.firstName, values.lastName, values.email, values.password, values.repeatPassword)
   
+    let {email, firstName, lastName} = response
+
+    let userInfo = {
+      email,
+      firstName,
+      lastName
+    }
+
     if (isSuccess && response.message) {
       toast.success(response.message)
   
       if (response.firstName && response.lastName) {
-        localStorage.setItem('user', `${response.firstName} ${response.lastName}`)
+        localStorage.setItem('user', `${JSON.stringify(userInfo)}`)
       }
   
       setAuth(response)
@@ -68,9 +82,17 @@ function App() {
   
     if (response.success) {
       let loginResponse = await authService.login(values.email, values.password)
+
+      let {email, firstName, lastName} = loginResponse
+
+      let userInfo = {
+        email,
+        firstName,
+        lastName
+      }
   
       if (loginResponse.firstName && loginResponse.lastName) {
-        localStorage.setItem('user', `${loginResponse.firstName} ${loginResponse.lastName}`)
+        localStorage.setItem('user', `${JSON.stringify(userInfo)}`)
       }
   
       setAuth(loginResponse)
@@ -94,7 +116,7 @@ function App() {
     loginSubmitHandler,
     registerSubmitHandler,
     logoutHandler,
-    isAuthenticated: !!auth.token
+    isAuthenticated: !!auth.token,
   }
 
   return (
