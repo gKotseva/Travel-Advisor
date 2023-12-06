@@ -13,39 +13,67 @@
     backdrop-filter: blur(10px);
   }
 
-  .paragraphDescription {
+.paragraphDescription {
     color: white;
     text-align: center;
     margin-top: 3%;
     
-  }
+}
 
-  .imagePlace {
+.imagePlace {
     max-width: 100%;
     float: left;
     border-image: fill;
-  }
+}
 
-  .modal-content {
+.modal-content {
     background: rgba(0, 0, 0, 0.650);
     padding: 20px;
     border-radius: 8px;
     margin-right: 300px;
     margin-left: 300px;
     position: relative;
-  }
+}
 
-  .paragraphName {
+.paragraphName {
     color: white;
     font-size: 80px;
     text-align: center;
-  }
-  
-  .close-button {
+}
+
+.close-button {
     position: absolute;
     color: white;
     top: 10px;
     right: 10px;
     cursor: pointer;
     font-size: 20px;
-  }
+}
+
+
+.bucketList-btn {
+  position: relative;
+  display: block;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: #8c8c8c00;
+  font-size: 16px;
+  text-transform: uppercase;
+  transition: .5s;
+  letter-spacing: 4px;
+  width: 320px;
+  border-color: #fcd303b5;
+  border-style: ridge;
+  float: inline-end;
+  margin: 30px 0 0 0;
+}
+
+.bucketList-btn:hover {
+  background: #8c8c8c;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #f2f2f2,
+              0 0 25px #f2f2f2,
+              0 0 50px #f2f2f2,
+              0 0 100px #f2f2f2;
+}
