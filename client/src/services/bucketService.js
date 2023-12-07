@@ -7,13 +7,25 @@ export const getAllItemsPerUser = async (email) => {
 }
 
 export const addToBucket = async(data) => {
-    const result = await request.post(`/api/bucket/add`, data)
+    const result = await request.post(`/api/bucket/addBucket`, data)
+
+    return result
+}
+
+export const addToVisited = async(data) => {
+    const result = await request.post(`/api/bucket/addVisited`, data)
 
     return result
 }
 
 export const removeFromBucket = async(data) => {
-    const result = await request.post(`/api/bucket/remove`, data)
+    const result = await request.post(`/api/bucket/removeBucket`, data)
+
+    return result
+}
+
+export const removeFromVisited = async(data) => {
+    const result = await request.post(`/api/bucket/removeVisited`, data)
 
     return result
 }

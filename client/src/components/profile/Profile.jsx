@@ -31,13 +31,16 @@ export default function Profile() {
         
         setVisited((prevVisited) => [...prevVisited, itemClicked]);
         setBucketList((prevBucketList) => prevBucketList.filter((value) => value.name !== name));
+
+        await bucketService.addToVisited({currentPlace: itemClicked, user});
+        await bucketService.removeFromBucket({name, documentID})
       }
 
       async function removeFromBucketList(name){
         setBucketList((prevBucketList) => prevBucketList.filter((value) => value.name !== name));
 
         await bucketService.removeFromBucket({name, documentID})
-        
+
       }
 
       async function removeFromVisited(name){
@@ -45,6 +48,9 @@ export default function Profile() {
 
         setBucketList((prevVisited) => [...prevVisited, itemClicked]);
         setVisited((prevBucketList) => prevBucketList.filter((value) => value.name !== name));
+
+        await bucketService.removeFromVisited({name, documentID})
+        await bucketService.addToBucket({currentPlace: itemClicked, user});
       }
 
     return (
