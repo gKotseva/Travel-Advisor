@@ -40,4 +40,19 @@ router.post('/all', async (req, res) => {
     }
 })
 
+router.post('/remove', async (req, res) => {
+    const request = req.body
+
+    try {
+        const response = await bucketUser.updateOne(
+            {_id: request.documentID},
+            { $pull: { bucketList: { name: request.name} } }
+        )
+        res.json(response);
+    } catch (error) {
+        res.status(500).json({message: error})
+    }
+
+})
+
 module.exports = router

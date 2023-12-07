@@ -9,6 +9,7 @@ export default function Profile() {
 
     const [bucketList, setBucketList] = useState([])
     const [visited, setVisited] = useState([])
+    const [documentID, setDocumentId] = useState('')
 
     useEffect(() => {
         const fetchBucketList = async () => {
@@ -16,6 +17,7 @@ export default function Profile() {
             const response = await bucketService.getAllItemsPerUser(user.email);
             setBucketList(response.bucketList)
             setVisited(response.visited)
+            setDocumentId(response._id)
           } catch (error) {
             console.error("Error fetching destination:", error);
           }
@@ -26,11 +28,24 @@ export default function Profile() {
 
       async function addToVisitedHandler(name) {
         const itemClicked = bucketList.find((v) => v.name === name);
-    
+        
         setVisited((prevVisited) => [...prevVisited, itemClicked]);
-    
         setBucketList((prevBucketList) => prevBucketList.filter((value) => value.name !== name));
-    }
+      }
+
+      async function removeFromBucketList(name){
+        setBucketList((prevBucketList) => prevBucketList.filter((value) => value.name !== name));
+
+        await bucketService.removeFromBucket({name, documentID})
+        
+      }
+
+      async function removeFromVisited(name){
+        const itemClicked = visited.find((v) => v.name === name);
+
+        setBucketList((prevVisited) => [...prevVisited, itemClicked]);
+        setVisited((prevBucketList) => prevBucketList.filter((value) => value.name !== name));
+      }
 
     return (
         <>
@@ -52,7 +67,7 @@ export default function Profile() {
                 </div>
                 <img src={list.image} alt="article-cover" />
               </div>
-              <button className="button-1" role="button">REMOVE</button>
+              <button className="button-1" role="button" onClick={() => removeFromVisited(destinationTitle)}>REMOVE</button>
               </>
             );
           })
@@ -79,6 +94,7 @@ export default function Profile() {
                 <img src={list.image} alt="article-cover" />
               </div>
               <button className="button-1" role="button" onClick={() => addToVisitedHandler(destinationTitle)}>ADD TO VISITED</button>
+              <button className="button-2" role="button" onClick={() => removeFromBucketList(destinationTitle)}>REMOVE FROM BUCKET LIST</button>
               </>
             );
           })

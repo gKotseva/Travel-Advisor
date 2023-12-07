@@ -9,6 +9,7 @@ const buildOptions = (data) => {
     }
 
     return options
+    
 }
 
 const request = async(method, url, data) => {

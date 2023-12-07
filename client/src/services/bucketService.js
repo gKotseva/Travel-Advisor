@@ -11,3 +11,9 @@ export const addToBucket = async(data) => {
 
     return result
 }
+
+export const removeFromBucket = async(data) => {
+    const result = await request.post(`/api/bucket/remove`, data)
+
+    return result
+}
