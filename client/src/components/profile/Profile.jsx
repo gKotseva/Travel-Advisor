@@ -86,32 +86,46 @@ export default function Profile() {
       </div>
         </div>
         <div className="bucketList">
-            <h1 className='paragraphNameBucket'>Your bucket list</h1>
-            <div className="centerBucketList">
-        {bucketList.length > 0 ? (
-          bucketList.map((list) => {
-            const destinationTitle = list.name;
-            return (
-              <>
-              <div className="bucketList-card" key={destinationTitle}>
-                <div className="bucketList-content">
-                  <p className="bucketList-title">{destinationTitle}</p>
-                </div>
-                <img src={list.image} alt="article-cover" />
+  <h1 className="paragraphNameBucket">Your bucket list</h1>
+  <div className="centerBucketList">
+    {bucketList.length > 0 ? (
+      bucketList.map((list) => {
+        const destinationTitle = list.name;
+        return (
+          <div className="bucketList-item" key={destinationTitle}>
+            <div className="bucketList-card">
+              <div className="bucketList-content">
+                <p className="bucketList-title">{destinationTitle}</p>
               </div>
-              <button className="button-1" role="button" onClick={() => addToVisitedHandler(destinationTitle)}>ADD TO VISITED</button>
-              <button className="button-2" role="button" onClick={() => removeFromBucketList(destinationTitle)}>REMOVE FROM BUCKET LIST</button>
-              </>
-            );
-          })
-        ) : (
-          <div className="noDestinations">
-            <img src="./sad-suitcase.png" />
-            <p>No destinations added in your bucket list!</p>
+              <img src={list.image} alt="article-cover" />
+            </div>
+            <div className="button-container">
+              <button
+                className="button-1"
+                role="button"
+                onClick={() => addToVisitedHandler(destinationTitle)}
+              >
+                ADD TO VISITED
+              </button>
+              <button
+                className="button-2"
+                role="button"
+                onClick={() => removeFromBucketList(destinationTitle)}
+              >
+                REMOVE FROM BUCKET LIST
+              </button>
+            </div>
           </div>
-        )}
+        );
+      })
+    ) : (
+      <div className="noDestinations">
+        <img src="./sad-suitcase.png" alt="Sad suitcase" />
+        <p>No destinations added to your bucket list!</p>
       </div>
-        </div>
+    )}
+  </div>
+</div>
         </>
     )
 }

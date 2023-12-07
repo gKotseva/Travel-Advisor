@@ -1,4 +1,4 @@
-.intro {
+/* .intro {
     position: fixed;
     z-index: 1;
     left: 0;
@@ -9,6 +9,28 @@
     animation: goTop 4s;
     animation-fill-mode: forwards;
     animation-delay: 2s;
+  } */
+
+  .intro {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #161616;
+    animation: fade-out 5s;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
+  }
+
+  @keyframes fade-out {
+    from {
+      opacity: 100;
+    } 
+    to {
+      opacity: 0;
+    }
   }
   
   @keyframes goTop {
@@ -27,6 +49,7 @@
     transform: translate(-50%, -50%);
     color: #ffffff;
     animation: fade-in 3s;
+    animation: fade-out 3s;
     animation-fill-mode: forwards;
   }
   

@@ -123,7 +123,7 @@ function App() {
     <>
     <ToastContainer />
     <AuthContext.Provider value={values}>
-      {/* <Intro /> */}
+      <Intro />
       <Header/>
         <Routes>
           <Route path={Path.Home} element={<Home />}></Route>
