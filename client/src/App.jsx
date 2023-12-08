@@ -6,7 +6,6 @@ import Cookies from 'js-cookie'
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import Intro from "./components/intro/Intro.jsx"
 import Header from "./components/header/Header.jsx"
 import Login from "./components/login/Login.jsx"
 import Register from "./components/register/Register.jsx"
@@ -123,7 +122,6 @@ function App() {
     <>
     <ToastContainer />
     <AuthContext.Provider value={values}>
-      <Intro />
       <Header/>
         <Routes>
           <Route path={Path.Home} element={<Home />}></Route>

@@ -5,16 +5,64 @@
   font-family: "Poppins", sans-serif;
 }
 
-body {
-    background-color: #EDE9E8;
+.mainGreeting {
+  padding: 20px;
+  text-align: center;
+  margin-right: 30%;
+  margin-left: 30%;
+  margin-top: -60px;
 }
 
-.home-image {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: -150px;
-    width: 50%;
-    transform: scale(0.60);
+.g2 {
+  padding: 20px;
+  text-align: center;
+  margin-left: 40px;
+  margin-top: 10px;
+  margin-right: 70%;
 }
 
+.g3 {
+  text-align: center;
+  padding: 20px;
+  margin-top: -235px;
+  margin-right: 40px;
+  margin-left: 70%;
+}
+
+.g4 {
+  padding: 20px;
+  text-align: center;
+  margin-top: -250px;
+  margin-right: 35%;
+  margin-left: 35%;
+}
+
+.sectionTitle {
+  margin-bottom: 20px;
+  font-size: 30px; 
+  color: black;
+  text-shadow: 10px 2px 4px #cc9966; 
+  letter-spacing: 1px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1100px;
+  margin: 50px auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.gallery-item {
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}

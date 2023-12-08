@@ -125,6 +125,11 @@
   text-align: center;
 }
 
+.imagesuitcase{
+  display: inline-block;
+  width: 30%;
+  align-items: center;
+}
 
 
 

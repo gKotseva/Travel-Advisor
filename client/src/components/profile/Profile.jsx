@@ -79,7 +79,7 @@ export default function Profile() {
           })
         ) : (
           <div className="noDestinations">
-            <img src="./sad-suitcase.png" />
+            <img src="./homeImages/sad-suitcase.png" className="imagesuitcase"/>
             <p>You have not visited any destinations!</p>
           </div>
         )}
@@ -120,7 +120,7 @@ export default function Profile() {
       })
     ) : (
       <div className="noDestinations">
-        <img src="./sad-suitcase.png" alt="Sad suitcase" />
+        <img src="./homeImages/sad-suitcase.png" alt="Sad suitcase" className="imagesuitcase"/>
         <p>No destinations added to your bucket list!</p>
       </div>
     )}
