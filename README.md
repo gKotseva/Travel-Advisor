@@ -13,11 +13,11 @@
 <h2 id="getting-started">Getting Started</h2>
 <p>For you to run the application you will need to install MongoDB and Node.js</p>
 
-<h2>Installation</h2>
+<h2 id="installation">Installation</h2>
 <p>You will need to install all dependencies that are available already in the package.json file for both the "server" and "client" folders of the application.</p>
 <code>npm install</code>
 
-<h2>Run the application</h2>
+<h2 id="run-the-application">Run the application</h2>
 <p>To run the application you will need to start the react client.</p>
 <code> cd client </code>
 <code>npm run dev</code>
