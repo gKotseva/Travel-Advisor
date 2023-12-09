@@ -99,6 +99,9 @@ export default function Profile() {
               </div>
               <img src={list.image} alt="article-cover" />
             </div>
+            <div className="weather">
+              
+            </div>
             <div className="button-container">
               <button
                 className="button-1"
@@ -112,7 +115,7 @@ export default function Profile() {
                 role="button"
                 onClick={() => removeFromBucketList(destinationTitle)}
               >
-                REMOVE FROM BUCKET LIST
+                REMOVE
               </button>
             </div>
           </div>

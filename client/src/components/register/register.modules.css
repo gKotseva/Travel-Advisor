@@ -2,10 +2,30 @@
 body {
     background: linear-gradient(#EDE9E8, #EDE9E8);
   }
+
+  .infoRegister {
+    float: right;
+    margin-top: 300px;
+    margin-left: 90px;
+    margin-right: 70%;
+    background-color: rgba(242, 206, 135, 0.397);
+    box-shadow: 1px 1px 137px 38px rgba(242, 206, 135, 0.466);
+    -webkit-box-shadow: 1px 1px 137px 38px rgba(242,206,135,0.75);
+    -moz-box-shadow: 1px 1px 137px 38px rgba(242,206,135,0.75);
+  }
+
+  .infoRegister p span {
+    font-weight: bold;
+  }
+
+  .register-box label span {
+    color: orange;
+    font-size: 20px;
+  }
   
   .register-box {
-    position: relative;
-    top: 50%;
+    position: absolute;
+    top: 30%;
     left: 40%;
     width: 400px;
     padding: 40px;

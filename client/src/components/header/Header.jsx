@@ -15,6 +15,7 @@ export default function Header() {
     <>
       <div>
         <header>
+        <img src='./homeImages/1.png' className='headerImg'/>
           <div className="navMenu">
             <Link to="/">Home</Link>
             <Link to="/all">Destinations</Link>

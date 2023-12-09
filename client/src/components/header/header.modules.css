@@ -6,7 +6,7 @@ header {
 
 .navMenu {
   position: relative;
-  top: 50%;
+  top: -50%;
   left: 50%;
   text-align: center;
   transform: translate(-50%, -50%);
@@ -32,4 +32,10 @@ header {
   border: solid 3px #000;
   border-color: #fcd303 transparent transparent transparent;
   border-radius: 90%/100px 100px 0;
+}
+
+.headerImg{
+  width: 400px;
+  margin-left: 30px;
+  margin-top: -20px;
 }

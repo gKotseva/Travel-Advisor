@@ -24,28 +24,33 @@ export default function Register() {
   })
   return (
     <>
+    <div className='infoRegister'>
+      <p>&#8226; Your password should be more than <span>4</span> characters long!</p>
+      <p>&#8226; Your email should be more than <span>10</span> characters long!</p>
+      <p>&#8226; All fields are required!</p>
+    </div>
       <div className="register-box">
         <h2>Register</h2>
         <form onSubmit={onSubmit}>
         <div className="user-box">
             <input type="text" name="firstName" autoComplete="username" onChange={onChange} value={values[RegisterFormKeys.FirstName]}/>
-            <label>First Name</label>
+            <label>First Name <span>*</span></label>
           </div>
           <div className="user-box">
             <input type="text" name="lastName" autoComplete="username" onChange={onChange} value={values[RegisterFormKeys.LastName]}/>
-            <label>Last Name</label>
+            <label>Last Name <span>*</span></label>
           </div>
           <div className="user-box">
             <input type="text" name="email" autoComplete="username" onChange={onChange} value={values[RegisterFormKeys.Email]}/>
-            <label>Email</label>
+            <label>Email <span>*</span></label>
           </div>
           <div className="user-box">
             <input type="password" name="password" autoComplete="current-password" onChange={onChange} value={values[RegisterFormKeys.Password]}/>
-            <label>Password</label>
+            <label>Password <span>*</span></label>
           </div>
           <div className="user-box">
             <input type="password" name="repeatPassword" autoComplete="current-password" onChange={onChange} value={values[RegisterFormKeys.RepeatPassword]}/>
-            <label>Repeat Password</label>
+            <label>Repeat Password <span>*</span></label>
           </div>
           <input type="submit" value="Register" className='register-btn'></input>
         </form>
