@@ -67,7 +67,7 @@ export default function Profile() {
             const destinationTitle = list.name;
             return (
               <>
-              <div className="bucketList-card" key={destinationTitle}>
+              <div className="visited-card" key={destinationTitle}>
                 <div className="bucketList-content">
                   <p className="bucketList-title">{destinationTitle}</p>
                 </div>
@@ -86,8 +86,8 @@ export default function Profile() {
       </div>
         </div>
         <div className="bucketList">
-  <h1 className="paragraphNameBucket">Your bucket list</h1>
-  <div className="centerBucketList">
+        <h1 className="paragraphNameBucket">Your bucket list</h1>
+        <div className="centerBucketList">
     {bucketList.length > 0 ? (
       bucketList.map((list) => {
         const destinationTitle = list.name;
@@ -98,9 +98,6 @@ export default function Profile() {
                 <p className="bucketList-title">{destinationTitle}</p>
               </div>
               <img src={list.image} alt="article-cover" />
-            </div>
-            <div className="weather">
-              
             </div>
             <div className="button-container">
               <button
@@ -127,7 +124,7 @@ export default function Profile() {
         <p>No destinations added to your bucket list!</p>
       </div>
     )}
-  </div>
+        </div>
 </div>
         </>
     )
