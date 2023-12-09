@@ -6,9 +6,9 @@
 
 <h2>Table of Contents</h2>
 <ol>
-  <li><a href="getting-started">Getting Started</a></li>
-  <li><a href="installation">Installation</a></li>
-  <li><a href="run-the-application">Run the application</a></li>
+  <li><a href="#getting-started">Getting Started</a></li>
+  <li><a href="#installation">Installation</a></li>
+  <li><a href="#run-the-application">Run the application</a></li>
 </ol>
 <h2 id="getting-started">Getting Started</h2>
 <p>For you to run the application you will need to install MongoDB and Node.js</p>
