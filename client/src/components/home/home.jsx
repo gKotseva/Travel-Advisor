@@ -14,27 +14,27 @@ export default function Home() {
             and unforgettable experiences.
           </p>
         </div>
-        <div class="gallery">
-          <div class="gallery-item">
-            <img
+        <div className="gallery">
+          <div className="gallery-item">
+            <img className="imageHome"
               src="https://media.timeout.com/images/105961899/750/422/image.jpg"
               alt="Image 1"
             />
           </div>
-          <div class="gallery-item">
-            <img
+          <div className="gallery-item">
+            <img className="imageHome"
               src="https://c4.wallpaperflare.com/wallpaper/852/204/50/stunning-view-from-the-deck-hd-wallpaper-preview.jpg"
               alt="Image 2"
             />
           </div>
-          <div class="gallery-item">
-            <img
+          <div className="gallery-item">
+            <img className="imageHome"
               src="https://w0.peakpx.com/wallpaper/382/53/HD-wallpaper-beautiful-autumn-rest-colorful-fall-shore-autumn-view-bench-beautiful-trees-lake-foliage-leaves-nature.jpg"
               alt="Image 3"
             />
           </div>
-          <div class="gallery-item">
-            <img
+          <div className="gallery-item">
+            <img className="imageHome"
               src="https://wallpapercave.com/wp/wp6209498.jpg"
               alt="Image 4"
             />

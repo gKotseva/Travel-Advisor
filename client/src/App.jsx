@@ -130,7 +130,7 @@ function App() {
           <Route path={Path.Destinations} element={<Destinations />}></Route>
           <Route path={Path.Logout} element={<Logout />}></Route>
           <Route path={Path.DestinationId} element={<Destination />}></Route>
-          <Route path={Path.BucketList} element={<Profile />}></Route>
+          <Route path={Path.Profile} element={<Profile />}></Route>
         </Routes>
     </AuthContext.Provider>
 

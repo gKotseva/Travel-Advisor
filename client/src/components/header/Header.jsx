@@ -10,7 +10,6 @@ import { AuthContext } from '../contexts/authContext';
 export default function Header() {
   const {
     isAuthenticated,
-    email
   } = useContext(AuthContext)
   return (
     <>
@@ -21,14 +20,14 @@ export default function Header() {
             <Link to="/all">Destinations</Link>
             {isAuthenticated && (
             <>
-              <Link to="/BucketList">My bucket list</Link>
+              <Link to="/profile">Profile</Link>
               <Link to="/logout" onClick={logout}>Logout</Link>
             </>
             )}
             {!isAuthenticated && (
             <>
-               <Link to="/login">Login</Link>
                <Link to="/register">Register</Link>
+               <Link to="/login">Login</Link>
             </>
             )}
           </div>

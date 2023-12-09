@@ -41,7 +41,7 @@
   margin-bottom: 20px;
   font-size: 30px; 
   color: black;
-  text-shadow: 10px 2px 4px #cc9966; 
+  text-shadow: 4px 2px 4px #cc9966; 
   letter-spacing: 1px;
   border-top: 1px solid black;
   border-right: 1px solid;
@@ -63,7 +63,7 @@
   border-radius: 8px;
 }
 
-img {
+.imageHome {
   width: 100%;
   height: auto;
   display: block;
