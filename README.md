@@ -10,7 +10,7 @@
   <li><a href="installation">Installation</a></li>
   <li><a href="run-the-application">Run the application</a></li>
 </ol>
-<h2>Getting Started</h2>
+<h2 id="getting-started">Getting Started</h2>
 <p>For you to run the application you will need to install MongoDB and Node.js</p>
 
 <h2>Installation</h2>
