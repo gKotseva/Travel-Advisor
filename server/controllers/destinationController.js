@@ -12,7 +12,7 @@ router.get('/all', async (req, res) => {
     }
   });
 
-  router.get('/:id', async (req, res) => {
+  router.get('/destinations/:id', async (req, res) => {
 
     let currentDestination = req.params.id
 

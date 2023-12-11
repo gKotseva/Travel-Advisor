@@ -5,7 +5,7 @@ const Path = {
     Destinations: '/all',
     Logout: '/logout',
     Profile: '/profile',
-    DestinationId: '/:id'
+    DestinationId: '/destinations/:id'
 }
 
 export default Path
