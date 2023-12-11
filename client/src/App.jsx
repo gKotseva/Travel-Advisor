@@ -18,6 +18,7 @@ import Profile from "./components/profile/Profile.jsx";
 
 import Path from "./paths.js"
 import * as authService from './services/authService.js'
+import NotFound from "./components/notFound/NotFound.jsx";
 
 function App() {
   const navigate = useNavigate()
@@ -143,6 +144,7 @@ function App() {
             path={Path.Profile}
             element={<PrivateRoute element={<Profile />} />}
           />
+          <Route path="*" element={<NotFound />} />
         </Routes>
     </AuthContext.Provider>
     </>
