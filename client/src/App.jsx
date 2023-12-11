@@ -1,6 +1,6 @@
 import Home from "./components/home/home.jsx"
 import {Routes, Route, useNavigate} from 'react-router-dom'
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Cookies from 'js-cookie'
 
 import { toast, ToastContainer } from 'react-toastify';
@@ -120,12 +120,17 @@ function App() {
   }
 
   const PrivateRoute = ({element, path}) => {
-    if(!values.isAuthenticated){
-      navigate(Path.Login)
-      return null
-    }
 
-    return <Route path={path} element={element} />
+    useEffect(() => {
+      if(!values.isAuthenticated){
+        navigate(Path.Login)
+        return undefined
+      }
+    }, [values.isAuthenticated, path])
+
+    return (
+        <Routes><Route path={`${path}/*`} element={element} /></Routes>
+    )
   }
 
   return (
