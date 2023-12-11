@@ -118,6 +118,15 @@ function App() {
     isAuthenticated: !!auth.token,
   }
 
+  const PrivateRoute = ({element, path}) => {
+    if(!values.isAuthenticated){
+      navigate(Path.Login)
+      return null
+    }
+
+    return <Route path={path} element={element} />
+  }
+
   return (
     <>
     <ToastContainer />
@@ -130,10 +139,12 @@ function App() {
           <Route path={Path.Destinations} element={<Destinations />}></Route>
           <Route path={Path.Logout} element={<Logout />}></Route>
           <Route path={Path.DestinationId} element={<Destination />}></Route>
-          <Route path={Path.Profile} element={<Profile />}></Route>
+          <Route
+            path={Path.Profile}
+            element={<PrivateRoute element={<Profile />} />}
+          />
         </Routes>
     </AuthContext.Provider>
-
     </>
   )
 }
