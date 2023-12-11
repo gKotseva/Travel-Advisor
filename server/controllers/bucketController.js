@@ -30,34 +30,32 @@ router.post('/addBucket', async (req, res) => {
 
 })
 
-router.post('/addVisited', async (req, res) => {
+router.put('/addVisited', async (req, res) => {
+    const data = req.body;
+    const userEmail = data.user.email;
+    const currentPlace = data.currentPlace;
 
-    const data = req.body
-    const userEmail = data.user.email
-    const currentPlace = data.currentPlace
+    const userExists = await bucketUser.findOne({ user: userEmail });
 
-    const userExists = await bucketUser.findOne({user: userEmail})
-
-    if(userExists){
+    if (userExists) {
         try {
-            await bucketUser.findOneAndUpdate(
-                {user: userEmail},
-                { $push: { visited: currentPlace } },
-            )
-            res.status(200).json({message: `Successfully added <${currentPlace.name}> to your bucket list!`})
-        } catch (error){
-            res.status(500).json({message: error})
+            await bucketUser.updateOne(
+                { user: userEmail },
+                { $push: { visited: currentPlace } }
+            );
+            res.status(200).json({ message: `Successfully added <${currentPlace.name}> to your bucket list!` });
+        } catch (error) {
+            res.status(500).json({ message: error.message });
         }
     } else {
         try {
-            await bucketUser.create({user: userEmail, bucketList: currentPlace})
-            res.status(200).json({message: `Successfully added <${currentPlace.name}> to your bucket list!`})
-        } catch (error){
-            res.status(500).json({message: error})
+            await bucketUser.create({ user: userEmail, bucketList: [currentPlace] });
+            res.status(200).json({ message: `Successfully added <${currentPlace.name}> to your bucket list!` });
+        } catch (error) {
+            res.status(500).json({ message: error.message });
         }
     }
-
-})
+});
 
 router.post('/all', async (req, res) => {
     const {email} = req.body

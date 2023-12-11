@@ -119,19 +119,17 @@ function App() {
     isAuthenticated: !!auth.token,
   }
 
-  const PrivateRoute = ({element, path}) => {
-
+  const PrivateRoute = ({ element }) => {
+    const { isAuthenticated } = values;
+  
     useEffect(() => {
-      if(!values.isAuthenticated){
-        navigate(Path.Login)
-        return undefined
+      if (!isAuthenticated) {
+        navigate(Path.Login);
       }
-    }, [values.isAuthenticated, path])
-
-    return (
-        <Routes><Route path={`${path}/*`} element={element} /></Routes>
-    )
-  }
+    }, [isAuthenticated]);
+  
+    return isAuthenticated ? <>{element}</> : null;
+  };
 
   return (
     <>

@@ -13,7 +13,7 @@ export const addToBucket = async(data) => {
 }
 
 export const addToVisited = async(data) => {
-    const result = await request.post(`/api/bucket/addVisited`, data)
+    const result = await request.put(`/api/bucket/addVisited`, data)
 
     return result
 }
