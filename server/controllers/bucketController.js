@@ -67,7 +67,7 @@ router.post('/all', async (req, res) => {
     }
 })
 
-router.post('/removeBucket', async (req, res) => {
+router.delete('/removeBucket', async (req, res) => {
     const request = req.body
 
     try {

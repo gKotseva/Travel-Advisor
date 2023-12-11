@@ -19,7 +19,7 @@ export const addToVisited = async(data) => {
 }
 
 export const removeFromBucket = async(data) => {
-    const result = await request.post(`/api/bucket/removeBucket`, data)
+    const result = await request.remove(`/api/bucket/removeBucket`, data)
 
     return result
 }
